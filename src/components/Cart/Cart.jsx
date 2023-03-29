@@ -4,7 +4,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import './Cart.css';
 const Cart = ({card}) => {
-    
+ console.log(card);  
     // 1st way: const card = props.card;
     // 2nd way: const {card}=props;
 
