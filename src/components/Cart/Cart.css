@@ -7,3 +7,16 @@
 .card p{
 font-size: 17px;
 }
+.btn-clear{
+    margin-bottom: 15px;
+    width: 100%;
+    background-color: #FF9900;
+}
+.btn-clear:hover{
+    background-color: crimson;
+    color: aliceblue;
+}
+.btn-review{
+    width: 100%;
+    background-color: #FF9900;
+}
