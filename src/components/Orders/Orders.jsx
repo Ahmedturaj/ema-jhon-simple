@@ -7,26 +7,32 @@ import { removeFromDb } from '../../utilities/fakedb';
 const Orders = () => {
     const savedCard = useLoaderData();
     const [cart, setCart] = useState(savedCard)
-const handleRemoveCart = (id) =>{
-    const remaining = cart.filter(product=> product.id !== id);
-    setCart(remaining);
-    removeFromDb(id);
-}
+    const handleRemoveCart = (id) => {
+        const remaining = cart.filter(product => product.id !== id);
+        setCart(remaining);
+        removeFromDb(id);
+    }
+    const handleClearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
+    }
     return (
         <div className='shop-container'>
-          <div className="review-container">
-          
-          {
-            cart.map(product=> <ReviewItem
-            key={product.id}
-            product={product}
-            handleRemoveCart={handleRemoveCart}
-            ></ReviewItem>)
-          }
-          </div>
-          <div className="card-container">
-<Cart card={cart}></Cart>
-          </div>
+            <div className="review-container">
+
+                {
+                    cart.map(product => <ReviewItem
+                        key={product.id}
+                        product={product}
+                        handleRemoveCart={handleRemoveCart}
+                    ></ReviewItem>)
+                }
+            </div>
+            <div className="card-container">
+                <Cart card={cart}
+                    handleClearCart={handleClearCart}
+                ></Cart>
+            </div>
         </div>
     );
 };

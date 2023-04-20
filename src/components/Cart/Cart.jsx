@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import './Cart.css';
-const Cart = ({card}) => { 
+import { Link } from 'react-router-dom';
+const Cart = ({card, handleClearCart}) => { 
     // 1st way: const card = props.card;
     // 2nd way: const {card}=props;
 
@@ -26,12 +27,12 @@ const grandTotal = total + totalShipping + tax;
                 <p>Total Shipping Charge:{totalShipping}</p>
                 <p>Tax:{tax.toFixed(2)}</p>
                 <h6>Grand Total:$ {grandTotal.toFixed(2)}</h6>
-                <button className="btn-clear">
+                <button onClick={handleClearCart} className="btn-clear">
                     Clear Cart <FontAwesomeIcon icon={faTrashAlt} />
                 </button>
-                <button className="btn-review">
+               <Link to='/orders'> <button className="btn-review">
                     Review Order <FontAwesomeIcon icon={faArrowRight} />
-                    </button>
+                    </button></Link>
         </div>
     );
 };
